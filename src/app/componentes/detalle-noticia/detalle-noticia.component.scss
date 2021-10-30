@@ -1,0 +1,48 @@
+//entretenimiento
+.verde{
+    color:green;
+}
+
+//tecnologia
+.rojoClaro{
+    color:rgb(243, 113, 113);
+}
+
+//deporte
+.rojoOscuro{
+    color:rgb(75, 6, 6);
+}
+
+//economia
+.violeta{
+    color:rgb(78, 83, 235);
+}
+
+//salud
+.azulOscuro{
+    color:rgb(26, 23, 248);
+}
+
+//mundo
+.azulClaro{
+    color:rgb(23, 110, 240);
+}
+
+#cajaDetalleNoticia{
+    margin: 7%;
+    padding: 7%;
+    border-style: solid;
+    text-align: center;
+    justify-content: center;
+    background-color:rgb(158, 158, 158);
+}
+
+#fotoDetalleNoticia img{
+    width: 100%;
+    justify-content: center;
+}
+
+#contenidoDetalleNoticia{
+    margin: 10%;
+    justify-content: center;
+}

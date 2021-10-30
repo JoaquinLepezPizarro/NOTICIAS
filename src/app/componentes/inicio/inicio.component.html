@@ -1,0 +1,57 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+    <img src='../../assets/inicio.jpg' alt='imagen de inicio' id="imagenInicio">
+
+    <ul id="seccionNoticiasDestacadas">
+        <li *ngFor="let noticia of mostrarNoticiasDestacadas()" id="noticiaDestacada">
+            <div id="noticiaDestacada_Imagen">
+                <img src='../../assets/{{noticia.imagen}}' alt='{{noticia.imagen}}'>
+            </div>
+            <div id="noticiaDestacada_Titulo">
+                <h2>{{noticia.titulo}}</h2>
+            </div>
+            <div id="noticiaDestacada_Texto">
+                {{noticia.texto}}
+            </div>
+            <div id="noticiaDestacada_Boton">
+                <button 
+                    [ngClass]="{
+                        verdeBoton: colorBoton(noticia.id)=='verde', 
+                        rojoClaroBoton: colorBoton(noticia.id)=='rojoClaro', 
+                        rojoOscuroBoton: colorBoton(noticia.id)=='rojoOscuro',
+                        violetaBoton: colorBoton(noticia.id)=='violeta',
+                        azulOscuroBoton: colorBoton(noticia.id)=='azulOscuro',
+                        azulClaroBoton: colorBoton(noticia.id)=='azulClaro'
+                    }" [routerLink]="['/detalleNoticia', noticia.id]" routerLinkActive="router-link-active">Leer Más 
+                </button>
+            </div>
+        </li>  
+    </ul>
+
+    <ul id="seccionNoticiasNormales">
+        <li *ngFor="let noticia of mostrarNoticiasNormales()" id="noticiaNormal">
+            <div id="noticiaNormal_Imagen">
+                <img src='../../assets/{{noticia.imagen}}' alt='{{noticia.imagen}}'>
+            </div>
+            <div id="noticiaNormal_Titulo">
+                <h2>{{noticia.titulo}}</h2>
+            </div>
+            <div id="noticiaNormal_Texto">
+                {{noticia.texto}}
+            </div>
+            <div id="noticiaNormal_Boton">
+                <button [routerLink]="['/detalleNoticia', noticia.id]" routerLinkActive="" id="boton"> Leer Más </button>
+            </div>
+        </li>
+    </ul>
+
+    <br><br><br>
+    <div id="tituloInferior">
+        <h2>Noticias - Valparaiso</h2>
+    </div>
+    <br>
+    <hr>
+</div>
+
+<app-footer></app-footer>

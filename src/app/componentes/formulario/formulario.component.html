@@ -1,0 +1,117 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+    <div *ngIf="!activarMensaje" id="cajaFormulario">
+        <form  [formGroup]="formulario" (ngSubmit)="validacion()" novalidate>
+            <h3>FORMULARIO DE CONTACTO - SERVICIO AL CLIENTE</h3><br>
+            <ul id="UlFormulario">
+                <li>
+                    <label>Nombre completo:</label><br>
+                    <input class="inputFormulario" type="text" formControlName="nombre" placeholder="Ingrese su nombre completo separado con espacios">
+                    <div *ngIf="formulario.controls['nombre'].invalid && (formulario.controls['nombre'].dirty || formulario.controls['nombre'].touched)" class="alert alert-danger">
+                        <div *ngIf="formulario.controls['nombre'].hasError('required')">
+                            Campo obligatorio
+                        </div>
+                        <div *ngIf="formulario.controls['nombre'].hasError('pattern')">
+                            Solo se aceptan letras
+                        </div>
+                    </div>
+                    <br><br>
+                </li>
+                <li>
+                    <label>Telefono:</label><br>
+                    <input class="inputFormulario" type="text" formControlName="telefono" placeholder="Ingrese su telefono movil (nueve digitos)" >
+                    <div *ngIf="formulario.controls['telefono'].invalid && (formulario.controls['telefono'].dirty || formulario.controls['telefono'].touched)" class="alert alert-danger">
+                        <div *ngIf="formulario.controls['telefono'].hasError('required')">
+                            Campo obligatorio
+                        </div>
+                        <div *ngIf="formulario.controls['telefono'].hasError('pattern')">
+                            Solo se aceptan dígitos
+                        </div>
+                        <div  *ngIf="formulario.controls['telefono'].hasError('maxlength')">
+                            El máximo de caracteres es 9
+                        </div>
+                    </div>
+                    <br><br>
+                </li>
+                <li>
+                    <label>Email:</label><br>
+                    <input class="inputFormulario" type="email" formControlName="email" placeholder="Ingrese su direccion email">
+                    <div *ngIf="formulario.controls['email'].invalid && (formulario.controls['email'].dirty || formulario.controls['email'].touched)" class="alert alert-danger">
+                        <div *ngIf="formulario.controls['email'].hasError('required')">
+                            Campo obligatorio
+                        </div>
+                        <div *ngIf="formulario.controls['email'].hasError('email')">
+                            le falta el @
+                        </div>
+                        <div *ngIf="formulario.controls['email'].hasError('pattern')">
+                            Solo se aceptan letras
+                        </div>
+                    </div>
+                    <br><br>
+                </li>
+                <li>
+                    <label>Dirigido a:</label>
+                        <select class="form-control" formControlName="opcion" id="opcion">
+                            <option value="0" >Contenidos</option>
+                            <option value="0">Publicidad</option>
+                            <option value="0">Sugerencias</option>
+                            <option value="0">Suscripciones digitales</option>
+                        </select>
+
+                        <div *ngIf="formulario.controls['opcion'].invalid && (formulario.controls['opcion'].dirty || formulario.controls['opcion'].touched)" class="alert alert-danger">
+                            <div *ngIf="formulario.controls['opcion'].hasError('required') ">
+                                Campo obligatorio
+                            </div>
+                        </div>
+                </li>
+                <li>
+                    <label>Mensaje:</label><br>
+                    <textarea  class="inputFormulario" formControlName="mensaje" placeholder="Ingrese el mensaje que desea enviar al departamento seleccionado de servicio al cliente" rows="5"></textarea>
+                    <div *ngIf="formulario.controls['mensaje'].invalid && (formulario.controls['mensaje'].dirty || formulario.controls['mensaje'].touched)" class="alert alert-danger">
+                        <div *ngIf="formulario.controls['mensaje'].hasError('required')">
+                            Campo obligatorio
+                        </div>
+                    </div>    
+                    <br><br>
+                </li>
+                <li>
+                    <button type="submit" [disabled]="formulario.invalid" >Enviar datos</button>
+                    <!-- [routerLink]="['/inicio']" routerLinkActive="router-link-active" -->
+                </li>
+            </ul>
+        </form>
+    </div> 
+    <div *ngIf="activarMensaje">
+        El formulario se ha enviado correctamente
+    </div> 
+</div>
+
+
+
+
+<app-footer></app-footer>
+
+
+
+
+<!--
+FORMULARIO
+Validaciones con FormBuilder y FormControl
+    Nombre Completo
+    Telefono
+    Correo Electronico
+    Asunto (select)
+        contenidos
+        publicidad
+        sugerencias
+        suscripciones digitales
+    Mensaje (textArea)
+
+
+    <app-footer></app-footer>
+-->
+
+
+
+

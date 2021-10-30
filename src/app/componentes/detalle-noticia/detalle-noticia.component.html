@@ -1,0 +1,19 @@
+<div class="container-fluid">
+    <div id="cajaDetalleNoticia">
+        <div id="fotoDetalleNoticia">
+            <img src='../../assets/{{Noticia.imagen}}' alt="foto de la noticia">
+        </div>
+        <div id="contenidoDetalleNoticia"> 
+            <h2>{{Noticia.titulo}} | <span [ngClass]="{
+                verde: Categoria.color=='verde', 
+                rojoClaro: Categoria.color=='rojoClaro', 
+                rojoOscuro: Categoria.color=='rojoOscuro',
+                violeta: Categoria.color=='violeta',
+                azulOscuro: Categoria.color=='azulOscuro',
+                azulClaro: Categoria.color=='azulClaro'}"
+                >{{Categoria.titulo}}</span></h2>
+            Autor: {{Noticia.autor}} | Fecha: {{Noticia.fecha}}
+            <p>{{Noticia.texto}}</p>
+        </div>
+    </div>
+</div> 
